@@ -1,5 +1,6 @@
-import React, {useState} from React;
+import React, { useState } from 'react';
 import styled, {css} from "styled-components";
+import trashcan from "../images/trashcan.png";
 
 const Container = styled.div`
   display: flex;
@@ -34,14 +35,16 @@ function TodoItem({ todo, deleteTodo, switchStatus}){
     };
 
     const onClickChange = () => {
-        console.log("--------------")
-        switchStatus("todo.id")
-    };
+      console.log("---------------")
+      switchStatus(todo.id);
+    };  
 
     return (
         <Container>
             <Check onClick={onClickChange} isDone={todo.isDone}/>
             <Text>{todo.text}</Text>
+            <Remove src={trashcan} onClick={onClickRemove}/>
         </Container>
     );
 }
+export default TodoItem;
